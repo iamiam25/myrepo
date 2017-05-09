@@ -40,9 +40,9 @@ class Checkuser extends \yii\db\ActiveRecord
     {
         return [
             [['user_id'],'required' ],
-            [['user_id', 'status','str_date','end_date'], 'integer'],
+            [['user_id', 'status' ], 'integer'],
             [['status'], 'default', 'value' => '0'],
-            [['checkin'], 'filter', 'filter' => function ($value) {
+           [['checkin'], 'filter', 'filter' => function ($value) {
                 if(!preg_match("/^[\d\+]+$/",$value) && $value > 0){
                     return strtotime($value);
                 }
@@ -50,7 +50,7 @@ class Checkuser extends \yii\db\ActiveRecord
                     return $value;
                 }
             }],
-
+         //   [['str_date','end_date'], 'date', 'format' => 'd-m-yyyy'],
             [['comment'], 'string', 'max' => 250]
 
         ];
@@ -112,20 +112,20 @@ class Checkuser extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
-    public function getStrDate($val=0)
+    public function getStrDate($val)
     {
         if(!$val)
             return 0;
 
-        return date('php:d-m-Y', $val) - 86400;
+        return strtotime($val) - 86399;
     }
 
-    public function getEndDate($val=0)
+    public function getEndDate($val)
     {
         if(!$val)
             return 0;
 
-        return date('php:d-m-Y', $val) + 86400;
+        return strtotime($val) + 86399;
     }
 /*
     public static function getDifference($value1,$value2)

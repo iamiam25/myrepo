@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 use app\models\User;
 use yii\bootstrap\Modal;
 use kartik\form\ActiveForm;///
-use kartik\datetime\DateTimePicker;
+use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Checkuser */
 /* @var $form yii\widgets\ActiveForm */
@@ -38,27 +38,22 @@ use kartik\datetime\DateTimePicker;
         ])
         ?>*/
 ?>
-    <?= $form->field($model, 'checkin')->widget(DateTimePicker::classname(), [
+    <?=/*  $form->field($model, 'checkin')->widget(\yii\jui\DatePicker::classname(), [
        //'value' => Yii::$app->formatter->asDatetime($model->checkin),
-        'convertFormat' => true,
-        'size' => 'mx',
+        //'convertFormat' => true,
+        //'size' => 'mx',
         'pluginOptions' => [
-            'calendarWeeks' => true,
+            //'calendarWeeks' => true,
            // 'daysOfWeekDisabled' => [0, 6],
-            'startDate' => date('php:d-m-Y H:i'),
+            //'startDate' => date('d-m-Y H:i'),
             'todayBtn' => true,
-            'format' => 'php:d-m-Y H:i',
+            'format' => 'd-m-yyy H:i',
             'autoclose' => true,
             'todayHighlight' => true
-        ]
-  /*  $form->field($model, 'checkin')->widget(DateTimePicker::classname(), [
-        'convertFormat' => true,
-        'options' => ['placeholder' => 'Enter event time ...'],
-        'pluginOptions' => [
-            'autoclose' => true,
-
-            //'todayHighlight' => true
-        ]*/
+        ] */
+   $form->field($model, 'checkin')->widget(\yii\jui\DatePicker::classname(), [
+       'language' => 'ru',
+       'dateFormat' => 'php:d-m-Y H:i',
     ])
     ?>
 

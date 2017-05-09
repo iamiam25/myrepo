@@ -65,10 +65,9 @@ class CheckuserController extends Controller
     public function actionCreate()
     {
         $model = new Checkuser();
-        $dataUser = User::find()->orderBy('username ASC')->all();
-        foreach ($dataUser as $value){
-            $arrUser[$value->id] = $value->username;
-        }
+        $u_id = Yii::$app->user->id;
+        $arrUser = User::findOne(['id'=>$u_id])->toArray();
+        $dataUser[$arrUser['id']] = $arrUser['username'];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'id' => $model->id]);
@@ -89,12 +88,12 @@ class CheckuserController extends Controller
                // $model->checkin = new Expression('NOW()');
                // $model->checkin = Yii::$app->formatter->asDatetime('now', 'php:Y-m-d H:i:s');
                 var_dump($model->checkin);
-                $model->checkin = date('U');
+               // $model->checkin = date('U');
             }
 
             return $this->render('create', [
                 'model' => $model,
-                'arrUser'=>$arrUser,
+                'dataUser'=>$dataUser,
             ]);
         }
     }

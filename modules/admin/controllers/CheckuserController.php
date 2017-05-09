@@ -9,7 +9,7 @@ use app\models\CheckuserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\db\Expression;
+//use yii\db\Expression;
 
 /**
  * CheckuserController implements the CRUD actions for Checkuser model.
@@ -41,6 +41,8 @@ class CheckuserController extends Controller
         foreach ($dataUser as $value){
             $arrUser[$value->id] = $value->username;
         }
+        //var_dump(strtotime("27-05-2017")-86399); die();
+      //  var_dump($searchModel); die();
      /*   $arrChk = Checkuser::find()
             ->where(['between', 'checkin', "1494115200", "1494201599" ])
             ->andwhere(['status' => ['1','2']])
