@@ -51,7 +51,7 @@ class CheckuserSearch extends Checkuser
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        $dataProvider->pagination->pageSize = 60;
+        $dataProvider->pagination->pageSize = 25;
 
         $this->load($params);
 
@@ -70,7 +70,7 @@ class CheckuserSearch extends Checkuser
         ]);
         if (($this->str_date)&&($this->end_date) )
         {//var_dump($query); die();
-            $query->andFilterWhere(['between', 'checkin', strtotime($this->str_date), strtotime($this->end_date)+86399]);
+            $query->andFilterWhere(['between', 'checkin', strtotime($this->str_date)-10800, strtotime($this->end_date)+86399]);
             //$query->andFilterWhere(['checkin' => $this->checkin]);
         }
         /*if ( ! is_null($this->checkin) && strpos($this->checkin, ' to ') !== false ) {

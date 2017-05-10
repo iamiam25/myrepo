@@ -40,6 +40,7 @@ class CheckuserController extends Controller
        $dataUser = User::find()->orderBy('username ASC')->all();
         foreach ($dataUser as $value){
             $arrUser[$value->id] = $value->username;
+           // $arrFilial[$value->id] = $value->filial;
         }
         //var_dump(strtotime("27-05-2017")-86399); die();
       //  var_dump($searchModel); die();
@@ -61,6 +62,7 @@ class CheckuserController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
            'arrUser' => $arrUser,
+           // 'arrFilial' => $arrFilial,
         ]);
     }
 

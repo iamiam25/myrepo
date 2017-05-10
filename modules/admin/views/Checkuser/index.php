@@ -20,6 +20,7 @@ $layout3 = <<< HTML
        <i class="glyphicon glyphicon-remove"></i> 
     </span>
 HTML;
+
 ?>
 <div class="checkuser-index">
 
@@ -31,6 +32,10 @@ HTML;
     </p>
 
     <?= GridView::widget([
+        'pager' => [
+            'firstPageLabel' => 'Первая страница',
+            'lastPageLabel'  => 'Последняя страница'
+        ],
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         //'layout' => "{summary}\n{items}\n<div class='text-center'>{pager}</div>",
@@ -38,6 +43,13 @@ HTML;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
+            [
+                'attribute' =>'filial',
+                'label'=>'Филиал',
+                'value' => 'user.filial',
+           //     'filter'=>$arrFilial,
+                'headerOptions' => ['width' => '80'],
+            ],
             [
                 'attribute' =>'user_id',
                 'value' => 'user.username',

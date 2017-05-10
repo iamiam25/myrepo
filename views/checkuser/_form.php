@@ -32,7 +32,6 @@ echo Yii::$app->formatter->asTime(strtotime($date), "php:H:i:s");
 //$date = date("Y-m-d H:i:s", time());
 //->textInput(['maxlength' => true,'readonly'=>true,'value'=>$dataUser['username']])
 //dropDownList($arrUser,['promt'=>'----',"Selected"=>false,"readonly"=>true]) 'value'=>$model->getUser() 'attribute'=>'user_id'
-print_r($dataUser);
   ?>
 
 <div class="checkuser-form">
