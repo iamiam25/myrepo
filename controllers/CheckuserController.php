@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\User;
+
 use Yii;
 use yii\web\Controller;
 use app\models\Checkuser;
 use app\models\CheckuserSearch;
+use app\models\User;
 use yii\db\Expression;
 
 class CheckuserController extends Controller

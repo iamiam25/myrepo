@@ -88,21 +88,7 @@ class Checkuser extends \yii\db\ActiveRecord
              ],
          ];
      }
-    /* public function behaviors()
-     {
-         return [
-             'timestamp' => [
-                 'class' => TimestampBehavior::className(),
-                 'attributes' => [
-                     ActiveRecord::EVENT_BEFORE_INSERT => 'checkin',
-                     ActiveRecord::EVENT_BEFORE_UPDATE => 'checkin',
-                 ],
-                 'value' => function() { return date('U'); },
-                 // unix timestamp },
-             ],
-         ];
-     }
- */
+
 
     /**
      * @return \yii\db\ActiveQuery
@@ -111,25 +97,5 @@ class Checkuser extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
-/*
-    public function getStrDate($val)
-    {
-        if(!$val)
-            return 0;
 
-        return strtotime($val) - 86399;
-    }
-
-    public function getEndDate($val)
-    {
-        if(!$val)
-            return 0;
-
-        return strtotime($val) + 86399;
-    }
-/*
-    public static function getDifference($value1,$value2)
-    {
-        return $value1-$value2;
-    }*/
 }

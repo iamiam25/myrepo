@@ -20,15 +20,16 @@ $layout3 = <<< HTML
        <i class="glyphicon glyphicon-remove"></i> 
     </span>
 HTML;
-
+//<!--h1><?=// Html::encode($this->title) ></h1-->
 ?>
 <div class="checkuser-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить Запись', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Новая Запись', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Фильтр вык', ['index'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -40,16 +41,18 @@ HTML;
         'filterModel' => $searchModel,
         //'layout' => "{summary}\n{items}\n<div class='text-center'>{pager}</div>",
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\SerialColumn',
+                'headerOptions' => ['width' => '38'],
+            ],
 
            // 'id',
-            [
+       /*     [
                 'attribute' =>'filial',
                 'label'=>'Филиал',
                 'value' => 'user.filial',
            //     'filter'=>$arrFilial,
                 'headerOptions' => ['width' => '80'],
-            ],
+            ],*/
             [
                 'attribute' =>'user_id',
                 'value' => 'user.username',
@@ -110,8 +113,10 @@ HTML;
                 'headerOptions' => ['width' => '75'],
             ],
 
-            ['class' => 'yii\grid\ActionColumn',
-                'headerOptions' => ['width' => '70']],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => ['width' => '70'],
+            ],
         ],
     ]); ?>
 
