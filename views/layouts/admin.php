@@ -38,6 +38,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Главная', 'url' => ['/admin/default/index']],
             ['label' => 'Регистрация', 'url' => ['/rbac/user/signup']],
+            ['label' => 'Отчет', 'url' => ['/admin/tabel/index']],
             ['label' => 'Приход/уход(ред.)', 'url' => ['/admin/checkuser/index']],
             ['label' => 'Профиль (ред.)', 'url' =>['/admin/profiln/index']],
             ['label' => 'RBAC', 'url' => ['/rbac/default/index']],

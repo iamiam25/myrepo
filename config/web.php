@@ -7,8 +7,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     //маршрут по умолчанию
    // 'defaultRoute' => 'checkuser/index',
-    'language'=>'ru',
-    'timeZone' => 'UTC',
+   // 'language' => 'ru-RU',
+    //'timeZone' => 'UTC',
+    'language' => 'en',
+    'timeZone' => 'Europe/Kiev',
+    'sourceLanguage' => 'ru-Ru',
+    'charset' => 'UTF-8',
     'bootstrap' => ['log'],
     'components' => [
         'authManager' => [
@@ -62,6 +66,7 @@ $config = [
             'timeFormat' => 'php:H:i:s',
             'timeZone' => 'Europe/Kiev',
            //'defaultTimeZone' => 'UTC',
+           'locale' => 'ru-RU',
         ],
     ],
     'modules' => [

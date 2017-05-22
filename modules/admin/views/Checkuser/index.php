@@ -82,13 +82,14 @@ HTML;
                // 'headerOptions' => [ 'class' => 'col-md-2' ],
 
                 'filter' => DatePicker::widget([
-                        'model' => $searchModel,
+                    'model' => $searchModel,
                     //'value' => date('d-M-Y', strtotime('-2 days')),
                   // 'value2' => date('d-M-Y', strtotime('+2 days')),
                     'attribute' => 'str_date',
                     'attribute2' => 'end_date',
                   'options' => ['placeholder' => 'Start date'],
                   'options2' => ['placeholder' => 'End date'],
+                    'language' => 'ru',
                   //  'convertFormat' => true,
                     'separator' => '<i class="glyphicon glyphicon-resize-horizontal"></i>',
                     'layout' => $layout3,

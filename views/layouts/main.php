@@ -37,30 +37,21 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            Yii::$app->user->isGuest ? (
-            ['label' => '0', 'url' => ['/']]
-            )
-             : (
-
-                ['label' => 'Админка', 'url' => ['/admin/checkuser/index']]
-
-            ),
             ['label' => 'Приход/уход', 'url' => ['/checkuser/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Вход', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Выход (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                                    )
-                                    . Html::endForm()
-                                    . '</li>'
-            )
+            ['label' => 'Админка', 'url' => ['/admin/checkuser/index']],
+
+              Yii::$app->user->isGuest ? [
+                  'label' => 'Вход', 'url' => ['/site/login']
+              ] : [
+                  'label' => 'Выйти ('.Yii::$app->user->identity->username.')',
+                  'url' => ['/site/logout'],
+                  'linkOptions' => ['data-method' => 'post']
+                  ],
+
         ],
     ]);
     NavBar::end();
+
     ?>
 
     <div class="container">

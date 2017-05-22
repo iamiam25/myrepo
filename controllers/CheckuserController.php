@@ -88,7 +88,7 @@ class CheckuserController extends Controller
 
                // $model->checkin = new Expression('NOW()');
                // $model->checkin = Yii::$app->formatter->asDatetime('now', 'php:Y-m-d H:i:s');
-                var_dump($model->checkin);
+               // var_dump($model->checkin);
                // $model->checkin = date('U');
             }
 

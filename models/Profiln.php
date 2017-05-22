@@ -55,13 +55,13 @@ class Profiln extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
-            'work_day' => 'Work Day',
-            'rest_day' => 'Rest Day',
-            'work_hour' => 'Work Hour',
-            'dinner_hour' => 'Dinner Hour',
-            'FIO' => 'Fio',
-            'filial' => 'Filial',
+            'user_id' => 'Пользователь',
+            'work_day' => 'Рабочии(дни)',
+            'rest_day' => 'Отпуск(дн)',
+            'work_hour' => 'Рабочие(ч)',
+            'dinner_hour' => 'Обед(ч)',
+            'FIO' => 'ФИО',
+            'filial' => 'Филиал',
         ];
     }
 
